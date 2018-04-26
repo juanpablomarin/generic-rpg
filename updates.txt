@@ -2,4 +2,4 @@ The purpose of this text file is report anything done, bugs or issues. Please da
 
 APRIL 25TH 2018
 -> added this -m
--> created player, enemy classes -k 
+-> created player, enemy, armor, weapon, helmet classes -k 
