@@ -1,7 +1,10 @@
 
 public class Player {
 	
-	private int attack, defense, intelligence, magicDefense, health, gender, tokens;
+	private Helmet helmet;
+	private Armor armor;
+	private Weapon weapon;
+	private int attack, defense, intelligence, magicDefense, health, gender, tokens, shieldPoints;
 	private String name;
 	
 	public Player(int attack, int defense, int intelligence, int magicDefense, int health, int gender, String name) {
@@ -10,11 +13,16 @@ public class Player {
 		this.intelligence = intelligence;
 		this.magicDefense = magicDefense;
 		this.health = health;
+		this.name = name;
+		this.shieldPoints = 0;
+		
+		//We can assign these laters once we figure more stuff out
+		this.weapon = null;
+		this.armor = null;
+		this.helmet = null;
 		
 		//Gender... 1 = male, 0 = female (easier than using a char imo)
 		this.gender = gender;
-		
-		this.name = name;
 		
 		//Some starting value we can modify whenever
 		//Maybe add different tokens for different things eventually, who knows
@@ -46,6 +54,10 @@ public class Player {
 		return this.tokens;
 	}
 	
+	public int getShieldPoints() {
+		return this.shieldPoints;
+	}
+	
 	
 	//Setters
 	public void updateAttack(int val) {
@@ -70,6 +82,22 @@ public class Player {
 
 	public void updateTokens(int val) {
 		this.tokens += val;
+	}
+	
+	public void updateShieldPoints(int val) {
+		this.shieldPoints += val;
+	}
+	
+	public void setWeapon(Weapon w) {
+		this.weapon = w;
+	}
+	
+	public void setArmor(Armor a) {
+		this.armor = a;
+	}
+	
+	public void setHelmet(Helmet h) {
+		this.helmet = h;
 	}
 	
 	//Check if character is dead (game over)
