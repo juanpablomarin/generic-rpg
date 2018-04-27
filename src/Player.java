@@ -109,4 +109,22 @@ public class Player {
 		return false;
 	}
 	
+	public void meleeAttack(Enemy e) {
+		//HOW DO YOU WANT TO STRUCTURE THIS
+		//ATTACKING LOGIC
+		
+		if (e.isDead()) {
+			//DO SOMETHING
+		}
+	}
+	
+	public void magicAttack(Enemy e) {
+		//HOW DO YOU WANT TO STRUCTURE THIS
+		//ATTACKING LOGIC
+		
+		if (e.isDead()) {
+			//DO SOMETHING
+		}
+	}
+	
 }

@@ -68,5 +68,14 @@ public class Enemy {
 		
 		return false;
 	}
+	
+	public void attack(Player p) {
+		//HOW DO YOU WANT TO STRUCTURE THIS
+		//ATTACKING LOGIC
+		
+		if (p.isDead()) {
+			//DO SOMETHING
+		}
+	}
 
 }
