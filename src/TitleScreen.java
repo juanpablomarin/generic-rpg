@@ -19,9 +19,11 @@ public class TitleScreen {
 		});
 	}
 	
-	TitlePanel titlePanel;
+	TitleView view;
 	
 	public TitleScreen() {
+		
+		this.view = new TitleView();
 	
 	}
 

@@ -11,14 +11,23 @@ import java.util.ArrayList;
  */
 public class TitleView extends JFrame{
 	
-	
+	private TitlePanel titlePanel;
 	
 	public TitleView() {
 		super("Working Title");
 		
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		Container c = this.getContentPane();
 		
+		this.titlePanel = new TitlePanel();
+		
+		c.add(this.titlePanel, BorderLayout.CENTER);
+		
+		
+		this.pack();
 		this.setFocusable(true);
+		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 	}
 
