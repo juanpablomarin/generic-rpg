@@ -1,5 +1,10 @@
-The purpose of this text file is report anything done, bugs or issues. Please date every post. Are you trying to impress arnold with your scrum imposters
+The purpose of this text file is report anything done, bugs or issues. 
+Please date every post. 
+Are you trying to impress arnold with your scrum imposters.
 
 APRIL 25TH 2018
 -> added this -m
 -> created player, enemy, armor, weapon, helmet classes -k 
+
+APRIL 30TH 2018
+-> added a bunch of sound files in resources -m
