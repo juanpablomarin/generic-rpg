@@ -1,6 +1,11 @@
-import java.io.File;
-import java.io.IOException;
-
+    import java.io.File;
+    import java.io.IOException;
+    import java.net.MalformedURLException;
+    import javax.sound.sampled.AudioInputStream;
+    import javax.sound.sampled.AudioSystem;
+    import javax.sound.sampled.Clip;
+    import javax.sound.sampled.LineUnavailableException;
+    import javax.sound.sampled.UnsupportedAudioFileException;
 /**
  * We want this class to be a simple class that can be accessed throughout the project that can allow methods
  * to play simple clip audio. An example use of this class would be
@@ -46,6 +51,9 @@ public class SoundPlayer {
 	
 	private static final String WORLD_PATH= INIT_PATH+"world/";
 	
+	
+	private Clip interfaceTitleButton;
+	
 	/**
 	 * We always want the user to provide an integer specifying which library
 	 * they're creating a sound from.
@@ -86,8 +94,35 @@ public class SoundPlayer {
 
 	private void buildInterfaceLibrary() {
 		
-
+		//All this code is used to open ONE single audio file
 		
+		try {
+			File file = new File(INTERFACE_PATH+"interfaceTitleButton.wav");
+			
+			if (file.exists()) {
+				interfaceTitleButton = AudioSystem.getClip();
+				AudioInputStream ais = AudioSystem.getAudioInputStream(file.toURI().toURL());
+				interfaceTitleButton.open(ais);
+			} else {
+				throw new RuntimeException("Sound: file not found: " +INTERFACE_PATH+"interfaceTitleButton.wav");
+			}
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		} catch (UnsupportedAudioFileException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} catch (LineUnavailableException e) {
+			e.printStackTrace();
+		}
+
+	}
+	
+	public void playInterfaceTitleButton() {
+		interfaceTitleButton.setFramePosition(0);
+		interfaceTitleButton.loop(0);
+		interfaceTitleButton.start();
 	}
 	
 	
