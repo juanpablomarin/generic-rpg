@@ -6,6 +6,7 @@ public class Player {
 	private Weapon weapon;
 	private int attack, defense, intelligence, magicDefense, health, gender, tokens, shieldPoints;
 	private String name;
+	private String[] inventory= new String[10];
 	
 	public Player(int attack, int defense, int intelligence, int magicDefense, int health, int gender, String name) {
 		this.attack = attack;

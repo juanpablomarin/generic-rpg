@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import javax.imageio.*;
@@ -8,7 +10,7 @@ import javax.imageio.*;
  * @author juan
  *
  */
-public class TitlePanel extends JPanel{
+public class TitlePanel extends JPanel{ //implements ActionListener{
 	
 	BufferedImage img = null;
 	private Font titleFont;
@@ -53,6 +55,9 @@ public class TitlePanel extends JPanel{
 		lblTitle.setText("     Generic RPG"); //This was just to help with formatting initially
 		
 		
+		SoundPlayer interfaceSounds = new SoundPlayer(1);
+		JButton startButton = new StartGameButton(interfaceSounds);		
+		
 		//BEST LAYOUT 2018
 		/*
 		setLayout(new GridBagLayout());
@@ -66,6 +71,7 @@ public class TitlePanel extends JPanel{
 		
 		this.setLayout(new GridLayout(9, 9, 100, 0)); //just fucking around with layout again
 		this.add(lblTitle);
+		this.add(startButton);
 		
 	}
 	
