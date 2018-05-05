@@ -24,6 +24,6 @@ public class StartGameButton extends JButton implements ActionListener{
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		soundPlayer.playInterfaceTitleButton();
+		soundPlayer.playSound("test.wav");
 	}
 }

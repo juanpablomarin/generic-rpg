@@ -52,8 +52,7 @@ public class SoundPlayer {
 	private static final String WORLD_PATH= INIT_PATH+"world/";
 	
 	
-	private Clip interfaceTitleButton;
-	
+	private String folder = null;
 	/**
 	 * We always want the user to provide an integer specifying which library
 	 * they're creating a sound from.
@@ -75,54 +74,49 @@ public class SoundPlayer {
 		 */
 		switch (lib) {
 			case 0:
-				//Build the battle sound library for use
+				folder = BATTLE_PATH;
+				break;
 			case 1:
-				//Build the interface sound library for use
-				buildInterfaceLibrary();
+				folder = INTERFACE_PATH;
+				break;
 			case 2:
+				folder = INVENTORY_PATH;
+				break;
 			case 3:
+				folder = MISC_PATH;
+				break;
 			case 4:
+				folder = NPC_PATH;
+				break;
 			case 5:
+				folder = WORLD_PATH;
+				break;
 			default:
-				System.out.println("SoundPlayer: Unable to build sound files.");
-				built = false;
+				System.out.println("SoundPlayer: Unable to assign folder.");
 				
 		}
 		
 		
 	}
 
-	private void buildInterfaceLibrary() {
-		
-		//All this code is used to open ONE single audio file
-		
-		try {
-			File file = new File(INTERFACE_PATH+"interfaceTitleButton.wav");
-			
-			if (file.exists()) {
-				interfaceTitleButton = AudioSystem.getClip();
-				AudioInputStream ais = AudioSystem.getAudioInputStream(file.toURI().toURL());
-				interfaceTitleButton.open(ais);
-			} else {
-				throw new RuntimeException("Sound: file not found: " +INTERFACE_PATH+"interfaceTitleButton.wav");
-			}
-			
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
-		} catch (UnsupportedAudioFileException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (LineUnavailableException e) {
-			e.printStackTrace();
-		}
-
-	}
 	
-	public void playInterfaceTitleButton() {
-		interfaceTitleButton.setFramePosition(0);
-		interfaceTitleButton.loop(0);
-		interfaceTitleButton.start();
+	public void playSound(String fileName) {
+		try {
+	         // Open an audio input stream.           
+	          File soundFile = new File(folder+fileName); //you could also get the sound file with an URL
+	          AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);              
+	         // Get a sound clip resource.
+	         Clip clip = AudioSystem.getClip();
+	         // Open audio clip and load samples from the audio input stream.
+	         clip.open(audioIn);
+	         clip.start();
+	      } catch (UnsupportedAudioFileException e) {
+	         e.printStackTrace();
+	      } catch (IOException e) {
+	         e.printStackTrace();
+	      } catch (LineUnavailableException e) {
+	         e.printStackTrace();
+	      }
 	}
 	
 	
